@@ -36,7 +36,15 @@
       <header class="topbar">
         <div class="mobile-brand"><span class="brand-mark">H</span> HUMANITY<span class="brand-light">OS</span></div>
         <div class="topbar-note"><span class="status-dot"></span> HUMAN-FIRST • INDIA EDITION</div>
-        <div class="topbar-right"><span class="avatar">H</span><span>Guest workspace</span></div>
+        <div class="topbar-right auth-area"><span id="authStatus">Guest workspace</span><button class="auth-toggle" id="authToggle" type="button">Sign in / Join</button><button class="auth-toggle hidden" id="signOutBtn" type="button">Sign out</button></div>
+        <form id="authPanel" class="auth-panel hidden">
+          <b>Join the Humanity OS community</b>
+          <input id="authEmail" type="email" autocomplete="email" placeholder="Email address" required>
+          <input id="authPassword" type="password" autocomplete="current-password" minlength="8" placeholder="Password (min 8 characters)" required>
+          <input id="authName" type="text" maxlength="60" placeholder="Display name (for new account)">
+          <div class="auth-actions"><button type="button" id="loginBtn">Sign in</button><button type="button" id="signupBtn">Create account</button></div>
+          <small>Sign-up may require email confirmation. Never use someone else's personal details.</small>
+        </form>
       </header>
 
       <section class="view active" id="view-home">
@@ -71,14 +79,15 @@
       </section>
 
       <section class="view" id="view-help">
-        <div class="page-intro"><div class="eyebrow">COMMUNITY SUPPORT • LOCAL ONLY</div><h1>NeedBridge</h1><p>Write down a need or an offer of help. This MVP stores entries only in this browser; it does not publish or match people online.</p></div>
+        <div class="page-intro"><div class="eyebrow">COMMUNITY SUPPORT • LOCAL ONLY</div><h1>NeedBridge</h1><p>Write down a need or an offer of help. Sign in to publish a community request or offer. Public posts show only your chosen name and city; never share private contact or identity details.</p></div>
         <div class="two-column">
           <form class="panel form-panel" id="helpForm">
             <div class="panel-heading"><div><span class="eyebrow">ADD AN ENTRY</span><h2>Make a connection possible</h2></div><span class="panel-icon mint">♡</span></div>
             <label>Entry type<select id="helpType" required><option value="Need help">I need help</option><option value="Offer help">I can offer help</option></select></label>
             <label>Category<select id="helpCategory" required><option>Food & essentials</option><option>Education</option><option>Skills & work</option><option>Health navigation</option><option>Environment</option><option>Other</option></select></label>
             <label>Short title<input id="helpTitle" maxlength="70" placeholder="e.g. School books for class 8" required></label>
-            <label>City or area (no full address)<input id="helpLocation" maxlength="60" placeholder="e.g. Prayagraj"></label>
+            <label>City or area (no full address)<input id="helpLocation" maxlength="60" placeholder="e.g. Prayagraj" required></label>
+            <label>State<input id="helpState" maxlength="60" placeholder="e.g. Uttar Pradesh" required></label>
             <label>Details<textarea id="helpDetails" rows="4" maxlength="500" placeholder="Share only what is necessary. Do not include Aadhaar, bank details or private documents."></textarea></label>
             <button class="primary-btn full-btn" type="submit">Save entry <span>→</span></button>
           </form>
@@ -146,5 +155,6 @@
   </div>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <script src="app.js"></script>
+  <script type="module" src="backend.js"></script>
 </body>
 </html>
