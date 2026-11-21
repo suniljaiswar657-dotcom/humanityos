@@ -38,3 +38,25 @@ A shared service would require a secure backend, access controls, moderation, ab
 ## License
 
 MIT
+
+
+## Supabase community backend (v0.2)
+
+The live app now connects to a Supabase project in Mumbai (`ap-south-1`).
+
+- Email/password account creation and sign-in.
+- NeedBridge requests and offers are stored in shared PostgreSQL tables.
+- Community board is visible only to authenticated users.
+- Users can delete only their own posts.
+- Profiles contain only a chosen display name and optional city/state; no phone, Aadhaar, exact address, payment or identity-document fields are collected.
+- Row Level Security is enabled on every public table. Frontend uses a publishable key only; no service-role key is shipped to the browser.
+- New accounts receive a minimal profile through a database trigger.
+- Content reports have a database table for future moderation workflow.
+
+### Current boundaries
+
+- Email confirmation and outbound email delivery depend on the Supabase Auth email configuration.
+- No live identity verification, background checks, emergency dispatch, payments, or guaranteed help delivery.
+- Community posts are user-generated. Treat all requests/offers as unverified; independently verify people and organisations before meeting or transferring money.
+- The local LifeSolver, EarthGuardian, HumanShield and impact counters remain client-side tools; their results are not professional advice or independently verified impact.
+- This MVP does not expose direct contact details. Arrange any follow-up only through safe, consent-based channels outside the public post.
